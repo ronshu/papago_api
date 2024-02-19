@@ -1,0 +1,14 @@
+// 클라디언트 id :  jd33k7mfvm / 클라디언트 시크릿 : gwtk5YNevb7CCS4Ww1q7C06GOO66daeuY6GTU5li 
+
+-- 깃허브 초기 레포지토리 생성 및 연결
+git init
+git add ./
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/ronshu/papago_api.git
+git push -u origin main
+
+-- 이미 푸쉬된 코드 수정사항 반영
+git add ./ 
+git commit -m '커밋 내용'
+git push -u origin main
