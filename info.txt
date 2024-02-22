@@ -12,3 +12,22 @@ git push -u origin main
 git add ./ 
 git commit -m '커밋 내용'
 git push -u origin main
+
+
+-- 네이버 언어코드 정리
+언어	언어 코드
+한국어	ko
+영어	en
+일본어	ja
+중국어 간체	zh-CN
+중국어 번체	zh-TW
+프랑스어	fr
+스페인어	es
+러시아어	ru
+독일어	de
+이탈리아어	it
+베트남어	vi
+태국어	th
+인도네시아어	id
+
+

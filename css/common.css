@@ -1,0 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  min-height: 100vh;
+  margin: auto;
+  padding: 0 1rem;
+}

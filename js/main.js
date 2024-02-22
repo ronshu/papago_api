@@ -1,8 +1,7 @@
-// 클라디언트 id :  jd33k7mfvm / 클라디언트 시크릿 : gwtk5YNevb7CCS4Ww1q7C06GOO66daeuY6GTU5li
-
 const url = new URL(window.location.href);
-const param = url.searchParams.get('id');
-console.log(param);
+
+const fromTextarea = document.querySelector('textarea');
+console.log(fromTextarea);
 
 /* ====== Common GET Request Function ====== */
 async function getRequest(url) {
@@ -15,8 +14,10 @@ async function getRequest(url) {
   });
 }
 
-async function getDetails(id) {
-  const url = `https://yts.mx/api/v2/movie_details.json?movie_id=${id}`;
+async function getData() {
+  const url = `./php/controller.php`;
+
+  //naveropenapi.apigw.ntruss.com/nmt/v1/translation
 
   // url 주소에는 절대 공백이 들어가면 안된다.
   // 주소 : https://yts.mx/api#list_movies > http get 첫번재 줄 복붙?쿼리=값&쿼리&값
@@ -31,4 +32,4 @@ async function getDetails(id) {
   }
 }
 
-getDetails(param);
+getData();

@@ -1,0 +1,28 @@
+h2 {
+  text-align: center;
+  padding: 5%;
+}
+
+.lang-choice {
+  display: flex;
+  justify-content: center;
+}
+
+/* In Text Box Section */
+.in-box {
+  width: 100%;
+}
+
+textarea {
+  width: 100%;
+  height: 150px;
+}
+
+.box-down {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+
+

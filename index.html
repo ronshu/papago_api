@@ -6,35 +6,81 @@
     <title>Papago Api</title>
     <!-- Lemix Icon Link -->
     <link
-      href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
       rel="stylesheet"
     />
 
     <!-- Main Style Link -->
-    <link rel="stylesheet" href="css/style.css" /></head
-  >치
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
   <body>
-    <div class="warapper">
+    <div class="wrapper">
       <header>
         <div class="container">
-          <h2>PAPAGO API 수정사항반영 333333</h2>
+          <h2>PAPAGO API</h2>
         </div>
       </header>
 
-      <div class="in-box">
-        <div class="in-choice"></div>
-        <div class="in-content">
-          <div class="in-voice"></div>
-          <div class="in-btn">번역하기</div>
-        </div>
-      </div>
 
-      <div class="change-btn"></div>
+      <!-- [JavaScript] Select 태그 이벤트처리 / option value,text 가져오기
+        -> 참고해서 자바스크립트 from, to 변수처리하기!!
+        https://hsunnystory.tistory.com/125 -->
+      <section class="lang-choice">
+        <div class="in-lang">
+          <select name="in-lang">
+            <option value="en">영어</option>
+            <option value="ko">한국어</option>
+            <option value="zh-TW">중국어 번체</option>
+            <option value="zh-CN">중국어 간체</option>
+            <option value="ja">일본어</option>
+            <option value="es">스페인어</option>
+          </select>
+        </div>
+
+        <div class="lang-change">
+          <span class="material-symbols-outlined"> swap_horiz </span>
+        </div>
+        <div class="out-lang">
+          <select name="out-lang">
+            <option value="ko">한국어</option>
+            <option value="en">영어</option>
+            <option value="zh-TW">중국어 번체</option>
+            <option value="zh-CN">중국어 간체</option>
+            <option value="ja">일본어</option>
+            <option value="es">스페인어</option>
+          </select>
+        </div>
+      </section>
+
+      <section class="in-box">
+        <textarea class="inText"></textarea>
+        <div class="box-down">
+          <div class="icon">
+            <span class="material-symbols-outlined"> mic </span>
+            <span class="material-symbols-outlined"> content_copy </span>
+          </div>
+          <button class="in-btn">번역하기</button>
+        </div>
+      </section>
 
       <div class="out-box">
-        <div class="out-choice"></div>
+        <textarea class="outText"></textarea>
+       
+          
+          <div class="box-down">
+            <div class="icon">
+      
+              <span class="material-symbols-outlined"> volume_up </span>
+              <span class="material-symbols-outlined"> content_copy </span></div>
+              <button>초기화하기</button>
+
+          </div>
+
+        </div>
       </div>
     </div>
-    <script src="./main.js"></script>
+
+    <script src="./js/main.js"></script>
   </body>
 </html>
