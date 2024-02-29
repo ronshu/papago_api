@@ -1,6 +1,5 @@
 <!-- 서버 링크: https://www.dabipyeung.com/papago/papago_api/ -->
 
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -21,10 +20,9 @@
     <div class="wrapper">
       <header>
         <div class="container">
-          <h2>PAPAGO API </h2>
+          <h2>PAPAGO API</h2>
         </div>
       </header>
-
 
       <!-- [JavaScript] Select 태그 이벤트처리 / option value,text 가져오기
         -> 참고해서 자바스크립트 from, to 변수처리하기!!
@@ -40,7 +38,6 @@
             <option name="lang" value="es">스페인어</option>
           </select>
         </div>
-
 
         <div class="lang-change">
           <span class="material-symbols-outlined"> swap_horiz </span>
@@ -58,11 +55,14 @@
       </section>
 
       <section class="in-box">
-        <textarea id="inText" placeholder="번역할 문자를 입력해주세요."></textarea>
+        <textarea
+          id="inText"
+          placeholder="번역할 문자를 입력해주세요."
+        ></textarea>
         <div class="box-down">
           <div class="icon">
             <span class="material-symbols-outlined"> mic </span>
-            <span class="material-symbols-outlined"> content_copy </span>
+            <!-- <span class="material-symbols-outlined"> content_copy </span> -->
           </div>
           <button class="trans-btn">번역하기</button>
         </div>
@@ -70,17 +70,13 @@
 
       <div class="out-box">
         <textarea id="outText"></textarea>
-       
-          
-          <div class="box-down">
-            <div class="icon">
-      
-              <span class="material-symbols-outlined"> volume_up </span>
-              <span class="material-symbols-outlined"> content_copy </span></div>
-              <button class="reset-btn">초기화하기</button>
 
+        <div class="box-down">
+          <div class="icon">
+            <span class="material-symbols-outlined"> volume_up </span>
+            <!-- <span class="material-symbols-outlined"> content_copy </span></div> -->
+            <!-- <button class="reset-btn">초기화하기</button> -->
           </div>
-
         </div>
       </div>
     </div>
