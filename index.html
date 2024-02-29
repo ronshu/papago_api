@@ -1,3 +1,6 @@
+<!-- 서버 링크: https://www.dabipyeung.com/papago/papago_api/ -->
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -18,7 +21,7 @@
     <div class="wrapper">
       <header>
         <div class="container">
-          <h2>PAPAGO API</h2>
+          <h2>PAPAGO API </h2>
         </div>
       </header>
 
@@ -28,33 +31,34 @@
         https://hsunnystory.tistory.com/125 -->
       <section class="lang-choice">
         <div class="in-lang">
-          <select name="in-lang">
-            <option value="en">영어</option>
-            <option value="ko">한국어</option>
-            <option value="zh-TW">중국어 번체</option>
-            <option value="zh-CN">중국어 간체</option>
-            <option value="ja">일본어</option>
-            <option value="es">스페인어</option>
+          <select id="inSelect">
+            <option name="lang" value="en">영어</option>
+            <option name="lang" value="ko">한국어</option>
+            <option name="lang" value="zh-TW">중국어 번체</option>
+            <option name="lang" value="zh-CN">중국어 간체</option>
+            <option name="lang" value="ja">일본어</option>
+            <option name="lang" value="es">스페인어</option>
           </select>
         </div>
+
 
         <div class="lang-change">
           <span class="material-symbols-outlined"> swap_horiz </span>
         </div>
         <div class="out-lang">
-          <select name="out-lang">
-            <option value="ko">한국어</option>
-            <option value="en">영어</option>
-            <option value="zh-TW">중국어 번체</option>
-            <option value="zh-CN">중국어 간체</option>
-            <option value="ja">일본어</option>
-            <option value="es">스페인어</option>
+          <select id="outSelect">
+            <option name="lang" value="ko">한국어</option>
+            <option name="lang" value="en">영어</option>
+            <option name="lang" value="zh-TW">중국어 번체</option>
+            <option name="lang" value="zh-CN">중국어 간체</option>
+            <option name="lang" value="ja">일본어</option>
+            <option name="lang" value="es">스페인어</option>
           </select>
         </div>
       </section>
 
       <section class="in-box">
-        <textarea class="inText"></textarea>
+        <textarea id="inText" placeholder="번역할 문자를 입력해주세요."></textarea>
         <div class="box-down">
           <div class="icon">
             <span class="material-symbols-outlined"> mic </span>

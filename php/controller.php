@@ -7,26 +7,37 @@
   // 창호꺼
   $client_id = "ERCpcIetnBrD5EHrNN2K"; // 네이버 개발자센터에서 발급받은 CLIENT ID
   $client_secret = "2_Roq9sdbi";// 네이버 개발자센터에서 발급받은 CLIENT SECRET
-  // $from = $_GET['from'];
-  // $to = $_GET['to'];
 
-  $from = "en";
-  $to = "ko";
-  $txt = "hello";
+  // $from = "en";
+  // $to = "ko";
+  // $txt = "hello";
 
-  $decodeTxt = urldecode($txt);
+  // $decodeTxt = urldecode($txt);
 
-  $encText = urlencode($decodeTxt);
-  $postvars = "source=".$from."&target=".$to."&text=".$encText;
+  // $encText = urlencode($decodeTxt);
+  // $postvars = "source=".$from."&target=".$to."&text=".$encText;
+
   // "source": "{원본 언어 코드}",
   // "target": "{번역 결과 언어 코드}",
   // "text": "{번역할 text}"
   // 언어코드는 info.txt를 참조하세요.
- 
+
+  $from = $_GET['from'];
+  $to = $_GET['to'];
+
+  $txt = $_GET['txt'];
+  $decodeTxt = urldecode($txt);
+
+  $encText = urlencode($decodeTxt);
+  $postvars = "source=".$from."&target=".$to."&text=".$encText;
 
   $url = "https://openapi.naver.com/v1/papago/n2mt";
   // 창호선생님 url : https://openapi.naver.com/v1/papago/n2mt
   // $url = "https://naveropenapi.apigw.ntruss.com/nmt/v1/translation";
+
+
+
+
 
 
   $is_post = true;
