@@ -19,31 +19,37 @@ async function getRequest(url) {
 // 번역하는 함수
 
 // 1. 선택한 언어를 콘솔에 불러온다
-const fromTextarea = document.querySelector('textarea');
-const button = document.querySelector('button');
 const inSelect = document.getElementById('inSelect');
+const outSelect = document.getElementById('outSelect');
+
+const fromTextarea = document.getElementById('inText');
+const toTextarea = document.getElementById('outText');
+const transBtn = document.querySelector('.trans-btn');
+const resetBtn = document.querySelector('.reset-btn');
 
 // selectedArr(배열) = 번역할 문자 , in언어, out언어
 const selectedArr = [];
 const selectedObj = { from: 'aaa', to: '', txt: '' };
 console.log(selectedObj);
+
 inSelect.addEventListener('change', function () {
   let inSelectedValue = inSelect.options[inSelect.selectedIndex].value;
   console.log(inSelectedValue);
-  selectedArr.push(inSelectedValue);
-  console.log(selectedArr);
+  // selectedArr.push(inSelectedValue);
+  // console.log(selectedArr);
   selectedObj.from = '';
-  console.log(selectedObj.from);
+  // console.log(selectedObj.from);
   selectedObj.from = inSelectedValue;
   console.log(selectedObj);
 });
 
-const outSelect = document.getElementById('outSelect');
 outSelect.addEventListener('change', function () {
   let outSelectedValue = outSelect.options[outSelect.selectedIndex].value;
   console.log(outSelectedValue);
-  selectedArr.push(outSelectedValue);
-  console.log(selectedArr);
+  // selectedArr.push(outSelectedValue);
+  // console.log(selectedArr);
+  selectedObj.to = outSelectedValue;
+  console.log(selectedObj);
 });
 
 console.log(selectedArr);
@@ -52,7 +58,7 @@ console.log(selectedArr);
 async function getData(selectedData) {
   console.log(selectedData);
   // const txtValue = fromTextarea.value;
-  const url = `./php/controller.php?from=${selectedArr[0]}&to=${selectedArr[1]}&txt=${selectedArr[2]}`;
+  const url = `./php/controller.php?from=${selectedData.from}&to=${selectedData.to}&txt=${selectedData.txt}`;
   // const url = `./php/controller.php?txt=안녕하세요&from=ko&to=en`;
 
   console.log(url);
@@ -66,6 +72,8 @@ async function getData(selectedData) {
     //데이터 요청 및 응답시도 : 성공일 경우 첫번째 코드 블럭으로 이동
     const data = await getRequest(url);
     console.log(data);
+
+    toTextarea.value = data.message.result.translatedText;
   } catch (error) {
     //실패 할 경우 두번째 코드 블럭으로 이동
     console.log('Error : ', error);
@@ -75,14 +83,14 @@ async function getData(selectedData) {
 // 3.클릭하면 번역한다
 
 // 번역된 언어 :  message.result.translatedText
-// 번역된 언어를 클래스가 outText 인 택스트영역에 나타내게
+// 번역된 언어를 클래스가 outText 인 택스트영역에 나타내게 하기
 
-button.addEventListener('click', function () {
+transBtn.addEventListener('click', function () {
   const txtValue = fromTextarea.value;
-  selectedArr.push(txtValue);
+  selectedObj.txt = txtValue;
   // console.log(selectedArr);
 
-  getData(selectedArr);
+  getData(selectedObj);
 });
 
 // 창호선생님 코드
