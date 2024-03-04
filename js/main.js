@@ -25,12 +25,12 @@ const outSelect = document.getElementById('outSelect');
 const fromTextarea = document.getElementById('inText');
 const toTextarea = document.getElementById('outText');
 const transBtn = document.querySelector('.trans-btn');
-const resetBtn = document.querySelector('.reset-btn');
+// const resetBtn = document.querySelector('.reset-btn');
 
 // selectedArr(배열) = 번역할 문자 , in언어, out언어
 const selectedArr = [];
 // const selectedObj = { from: 'aaa', to: '', txt: '' };
-const selectedObj = { from: 'aaa', to: '', txt: '' };
+const selectedObj = { from: 'en', to: 'ko', txt: '' };
 console.log(selectedObj);
 
 inSelect.addEventListener('change', function () {
@@ -75,7 +75,6 @@ async function getData(selectedData) {
     console.log(data);
     // 불러온 텍스트를 outText인 textarea 태그에 나타내 준다.
     toTextarea.value = data.responseData.translatedText;
-
     // toTextarea.value = data.result.translatedText;
   } catch (error) {
     //실패 할 경우 두번째 코드 블럭으로 이동
@@ -95,43 +94,25 @@ transBtn.addEventListener('click', function () {
 });
 
 // 4. 스위치버튼 클릭하면 언어바꾸기
-const changeBtn = document.querySelector('.lang-change');
-outSelect.addEventListener('click', function () {
-  const currentInLanguage = inSelect.value;
-  const currentOutLanguage = outSelect.value;
+// const changeBtn = document.querySelector('.lang-change');
+// changeBtn.addEventListener('click', function () {
+//   const currentInLanguage = inSelect.value;
+//   const currentOutLanguage = outSelect.value;
 
-  // async function translateLanguage() {
-  //   const fromTextValue = fromTextarea.value;
-  // 현재 선택된 언어 값을 서로 교환
-  inSelect.value = currentOutLanguage;
-  outSelect.value = currentInLanguage;
+//   // async function translateLanguage() {
+//   //   const fromTextValue = fromTextarea.value;
+//   // 현재 선택된 언어 값을 서로 교환
+//   inSelect.value = currentOutLanguage;
+//   outSelect.value = currentInLanguage;
 
-  //   const inSelect = document.getElementById('.inSelect');
-  //   inSelect = inSelect.options[inSelect.selectedIndex].value;
-  // 창호선생님 조언 : 어트리뷰트 속성이용해서 바꿔라. https://www.codingfactory.net/10419
-  // setAttribute 클래스 이름도
-  // 속성이름(클래스 또는 아이디)
-  // 셋어트리뷰트. 아이디. 두번째 파라미터로 . 인
+// const inSelect = document.getElementById('.inSelect');
+// inSelect = inSelect.options[inSelect.selectedIndex].value;
+// 창호선생님 조언 : 어트리뷰트 속성이용해서 바꿔라. https://www.codingfactory.net/10419
 
-  //   // const outSelect = document.getElementById('.outSelect');
-  //   // outSelect = outSelect.options[outSelect.selectedIndex].value;
-  //   // const langFromPair = document
-  //   //   .querySelector('.inSelect')
-  //   //   .getAttribute('value');
-  //   // const langTopair = document.querySelector('.outSelect').getAttribute('value');
-
-  //   await fetch(
-  //     `/vtp/php/controller.php?txt=${fromTextValue}&from=${inSelect}&to=${outSelect}`
-  //   )
-  //     .then((data) => data.json())
-  //     .then((result) => {
-  //       console.log(result);
-  //       toTextArea.value = result.message.result.translatedText;
-  //       loaderRing.classList.remove('loading');
-  //     });
-  // }
-  // 안에 들어
-});
+// setAttribute 클래스 이름도
+// 속성이름(클래스 또는 아이디)
+// 셋어트리뷰트. 아이디. 두번째 파라미터로 . 인
+// });
 
 // - - - - - - - -
 // let outSelectedValue = outSelect.options[outSelect.selectedIndex].value;
