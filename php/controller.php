@@ -5,8 +5,8 @@
   // $client_secret = "gwtk5YNevb7CCS4Ww1q7C06GOO66daeuY6GTU5li";// 네이버 개발자센터에서 발급받은 CLIENT SECRET
 
   // 창호꺼
-  $client_id = "ERCpcIetnBrD5EHrNN2K"; // 네이버 개발자센터에서 발급받은 CLIENT ID
-  $client_secret = "2_Roq9sdbi";// 네이버 개발자센터에서 발급받은 CLIENT SECRET
+  // $client_id = "ERCpcIetnBrD5EHrNN2K"; // 네이버 개발자센터에서 발급받은 CLIENT ID
+  // $client_secret = "2_Roq9sdbi";// 네이버 개발자센터에서 발급받은 CLIENT SECRET
 
   // $from = "en";
   // $to = "ko";
@@ -31,9 +31,9 @@
   $encText = urlencode($decodeTxt);
   $postvars = "source=".$from."&target=".$to."&text=".$encText;
 
-  $url = "https://openapi.naver.com/v1/papago/n2mt";
+  // $url = "https://openapi.naver.com/v1/papago/n2mt";
   // 창호선생님 url : https://openapi.naver.com/v1/papago/n2mt
-  // $url = "https://naveropenapi.apigw.ntruss.com/nmt/v1/translation";
+  $url = "https://naveropenapi.apigw.ntruss.com/nmt/v1/translation";
 
 
 
@@ -57,6 +57,6 @@
   if($status_code == 200) {
     echo $response;
   } else {
-    echo "Error 내용:".$response;
+    echo $response;
   }
 ?>
