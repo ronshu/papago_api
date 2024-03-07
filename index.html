@@ -1,5 +1,23 @@
 <!-- 서버 링크: https://www.dabipyeung.com/papago/papago_api/ -->
 
+<!-- 
+* 파파고 API 만료로 구글 번역 API 사용하여 번역체가 어색함. 
+구글변역 API : https://mymemory.translated.net/
+
+* 나중에 회사들어가서 챗GPT 결제되면 chatGPT API 변경하라고
+하심 
+
+* 음성인식
+컴 : 버튼으로 조절할 수 있음. 
+폰 : 폰에서는 5초동안 자동으로 꺼짐 선생님 
+선생님이 준 자료 자바스크립트 파일에 음성인식 코드 적혀있으니 참고하고, 아래 사이트 내용 참조하면 된다고 하심.
+
+음성인식 자바스크립트 참고 사이트
+: https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API
+
+텍스트 음성치환 자바스크립트 참고 사이트
+: https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API -->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -28,12 +46,11 @@
         -> 참고해서 자바스크립트 from, to 변수처리하기!!
         https://hsunnystory.tistory.com/125 -->
       <section class="lang-choice">
-        <div class="in-lang">
+        <div class="in-lang change-lang">
           <select id="inSelect">
             <option name="lang" value="en">영어</option>
             <option name="lang" value="ko">한국어</option>
             <option name="lang" value="zh">중국어</option>
-            <!-- <option name="lang" value="zh-CN"></option> -->
             <option name="lang" value="ja">일본어</option>
             <option name="lang" value="es">스페인어</option>
           </select>
@@ -42,12 +59,11 @@
         <div class="lang-change">
           <span class="material-symbols-outlined"> swap_horiz </span>
         </div>
-        <div class="out-lang">
+        <div class="out-lang change-lang">
           <select id="outSelect">
             <option name="lang" value="ko">한국어</option>
             <option name="lang" value="en">영어</option>
             <option name="lang" value="zh">중국어</option>
-            <!-- <option name="lang" value="zh-CN">중국어 간체</option> -->
             <option name="lang" value="ja">일본어</option>
             <option name="lang" value="es">스페인어</option>
           </select>
@@ -60,16 +76,16 @@
           placeholder="번역할 문자를 입력해주세요."
         ></textarea>
         <div class="box-down">
-          <div class="icon">
-            <span class="material-symbols-outlined"> mic </span>
-            <!-- <span class="material-symbols-outlined"> content_copy </span> -->
-          </div>
-          <button class="trans-btn">번역하기</button>
+          <span class="material-symbols-outlined" id="mic-on"> mic </span>
+          <span class="material-symbols-outlined" id="mic-off"> mic_off </span>
         </div>
       </section>
 
       <div class="out-box">
-        <textarea id="outText"></textarea>
+        <textarea
+          id="outText"
+          placeholder="번역된 문자를 출력합니다."
+        ></textarea>
 
         <div class="box-down">
           <div class="icon">
@@ -79,7 +95,17 @@
           </div>
         </div>
       </div>
+
+      <button class="trans-btn">번역하기</button>
     </div>
+
+    <script>
+      // const changeLang = document.querySelectorAll('.change-lang');
+      // console.log(changeLang);
+
+      // changeLang[0].classList.add('in-lang');
+      // changeLang[1].classList.add('out-lang');
+    </script>
 
     <script src="./js/main.js"></script>
   </body>

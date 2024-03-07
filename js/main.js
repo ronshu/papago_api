@@ -56,7 +56,7 @@ outSelect.addEventListener('change', function () {
 
 // console.log(selectedArr);
 
-// 2. 콘솔에서 불러온 언어를
+// 2. 콘솔에서 불러온 언어를 API 적용하여 번역하고 아웃텍스트에 나타내게 한다.
 async function getData(selectedData) {
   //selectedData는 함수 사용하는 인수임. forEach에서 큰거 ,작은거 나누는 것처럼. 그래서 선언 안 해도 실행이 되는 것이다.
   //console.log(selectedData);
@@ -73,7 +73,7 @@ async function getData(selectedData) {
     //데이터 요청 및 응답시도 : 성공일 경우 첫번째 코드 블럭으로 이동
     const data = await getRequest(url);
     console.log(data);
-    // 불러온 텍스트를 outText인 textarea 태그에 나타내 준다.
+    // 불러온 텍스트를 .outText인 textarea 태그에 나타내 준다.
     toTextarea.value = data.responseData.translatedText;
     // toTextarea.value = data.result.translatedText;
   } catch (error) {
@@ -94,25 +94,46 @@ transBtn.addEventListener('click', function () {
 });
 
 // 4. 스위치버튼 클릭하면 언어바꾸기
-// const changeBtn = document.querySelector('.lang-change');
-// changeBtn.addEventListener('click', function () {
-//   const currentInLanguage = inSelect.value;
-//   const currentOutLanguage = outSelect.value;
+const changeBtn = document.querySelector('.lang-change');
+changeBtn.addEventListener('click', function () {
+  const currentInLanguage = inSelect.value;
+  const currentOutLanguage = outSelect.value;
 
-//   // async function translateLanguage() {
-//   //   const fromTextValue = fromTextarea.value;
-//   // 현재 선택된 언어 값을 서로 교환
-//   inSelect.value = currentOutLanguage;
-//   outSelect.value = currentInLanguage;
+  const changeLang = document.querySelectorAll('.change-lang');
 
-// const inSelect = document.getElementById('.inSelect');
-// inSelect = inSelect.options[inSelect.selectedIndex].value;
-// 창호선생님 조언 : 어트리뷰트 속성이용해서 바꿔라. https://www.codingfactory.net/10419
+  changeLang[0].childNodes[1].setAttribute('id', 'inSelect');
+  changeLang[1].childNodes[1].setAttribute('id', 'outSelect');
 
-// setAttribute 클래스 이름도
-// 속성이름(클래스 또는 아이디)
-// 셋어트리뷰트. 아이디. 두번째 파라미터로 . 인
-// });
+  // selectedObj.from = '';
+  // // console.log(selectedObj.from);
+  // selectedObj.from = inSelectedValue;
+
+  const objFrom = selectedObj.from;
+  const objTo = selectedObj.to;
+
+  selectedObj.from = '';
+  selectedObj.to = '';
+
+  selectedObj.from = objTo;
+  selectedObj.to = objFrom;
+  // async function translateLanguage() {
+  //   const fromTextValue = fromTextarea.value;
+  // 현재 선택된 언어 값을 서로 교환
+  inSelect.value = currentOutLanguage;
+  outSelect.value = currentInLanguage;
+
+  console.log(selectedObj);
+
+  //  텍스트는 바뀌지 않음. 여기서 부터 수정 필요!!!
+
+  // const inSelect = document.getElementById('.inSelect');
+  // inSelect = inSelect.options[inSelect.selectedIndex].value;
+  // 창호선생님 조언 : 어트리뷰트 속성이용해서 바꿔라. https://www.codingfactory.net/10419
+
+  // setAttribute 클래스 이름도
+  // 속성이름(클래스 또는 아이디)
+  // 셋어트리뷰트. 아이디. 두번째 파라미터로 . 인
+});
 
 // - - - - - - - -
 // let outSelectedValue = outSelect.options[outSelect.selectedIndex].value;
